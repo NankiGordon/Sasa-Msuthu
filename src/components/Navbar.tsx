@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
+import logo from "../assets/images/logo.webp";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -11,8 +12,10 @@ export default function Navbar() {
 
   return (
     <nav className="navbar">
-      <p className="brand">Ride-Nation</p>
-
+      <div className="navbar-brand">
+        <img src={logo} alt="Ride-Nation" className="brand-logo" />
+        <p className="brand-text">SASA MSUTHU MINING</p>
+      </div>
       {/* Hamburger for small screens */}
       <div className="hamburger" onClick={toggleMenu}>
         <div></div>
@@ -37,7 +40,11 @@ export default function Navbar() {
           </Link>
         </li>
         <li>
-          <Link to="/contact" className="contact" onClick={() => setMenuOpen(false)}>
+          <Link
+            to="/contact"
+            className="contact"
+            onClick={() => setMenuOpen(false)}
+          >
             Contact
           </Link>
         </li>

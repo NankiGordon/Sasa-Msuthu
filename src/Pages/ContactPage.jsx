@@ -21,7 +21,7 @@ function Contact() {
     e.preventDefault();
 
     try {
-      const response = await fetch("https://formspree.io/f/xrbnjjjy", {
+      const response = await fetch("https://formspree.io/f/mwpgzbbj", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -120,13 +120,14 @@ function Contact() {
           <div className="contact-info">
             <h2>Our Information</h2>
             <p>
-              <strong>Address:</strong> 123 Mining Rd, Johannesburg, South Africa
+              <strong>Address:</strong> 19 Gemini Villas, Benfleur ,Emalahleni,
+              South Africa
             </p>
             <p>
               <strong>Phone:</strong> +27 79 056 3456
             </p>
             <p>
-              <strong>Email:</strong> info@miningcompany.co.za
+              <strong>Email:</strong> admin@sasamsuthu.co.za
             </p>
             <p>
               <strong>Working Hours:</strong> Mon-Fri 08:00 - 17:00
@@ -134,8 +135,6 @@ function Contact() {
           </div>
         </motion.div>
       </section>
-
-
     </div>
   );
 }

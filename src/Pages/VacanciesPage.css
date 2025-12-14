@@ -9,7 +9,7 @@
 
 /* Hero Section */
 .vacancies-hero {
-  background: url("https://picsum.photos/1600/400?random=20") center/cover no-repeat;
+  background: url("images/image010.webp") center/cover no-repeat;
   color: white;
   text-align: center;
   padding: 120px 20px 80px;
@@ -19,6 +19,8 @@
   font-size: 3rem;
   margin-bottom: 20px;
   text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.7) ;
+  color: #ff7f00;
 }
 
 .vacancies-hero-content p {
@@ -26,6 +28,8 @@
   max-width: 600px;
   margin: 0 auto;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.8);
+
 }
 
 /* Vacancies List */

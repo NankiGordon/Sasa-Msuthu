@@ -3,6 +3,12 @@ import { motion } from "framer-motion";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import "./AboutPage.css";
+import coal from "../assets/images/image004.webp";
+import image001 from "../assets/images/image005.webp";
+import image002 from "../assets/images/image006.webp";
+import image003 from "../assets/images/image007.webp";
+import image004 from "../assets/images/image008.webp";
+import image005 from "../assets/images/image009.webp";
 
 // Swiper imports (v9+)
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -11,61 +17,69 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-function About() {
-  // Safety slides with corresponding text
-  const safetySlides = [
-    {
-      img: "https://picsum.photos/500/300?random=1",
-      title: "Safety First",
-      description:
-        "Safety is our top priority. All operations are performed with strict safety standards to protect our employees and environment.",
-    },
-    {
-      img: "https://picsum.photos/500/300?random=2",
-      title: "Continuous Training",
-      description:
-        "Continuous training and monitoring ensure a culture of safety throughout the organization.",
-    },
-    {
-      img: "https://picsum.photos/500/300?random=3",
-      title: "Equipment Safety",
-      description:
-        "All equipment is regularly inspected and maintained to prevent accidents and ensure operational safety.",
-    },
+export default function About() {
+  const [activeSafetyIndex, setActiveSafetyIndex] = useState(0);
+  const [modalImage, setModalImage] = useState(null);
+
+  // History images
+  const historyImages = [
+    { src: image001, alt: "Mining operations 1" },
+    { src: image002, alt: "Mining operations 2" },
   ];
 
-  const [activeSafetyIndex, setActiveSafetyIndex] = useState(0);
+  // Safety slides
+  const safetySlides = [
+    {
+      img: image003,
+      title: "Operational Awareness",
+      description:
+        "Every operator, from ADT drivers to dozer pilots, is trained to anticipate risks before they arise.",
+    },
+    {
+      img: image004,
+      title: "Continuous Training",
+      description:
+        "Regular workshops, scenario drills, and skill refreshers ensure our teams remain alert, competent, and ready for any challenge.",
+    },
+    {
+      img: image005,
+      title: "Equipment Excellence",
+      description:
+        "Machines are rigorously inspected and maintained to guarantee reliability and operational safety.",
+    },
+  ];
 
   return (
     <div className="about-page">
       <Navbar />
 
       {/* Hero Section */}
-      <section className="about-hero">
+      <section
+        className="about-hero"
+        style={{ backgroundImage: `url(${coal})` }}
+      >
         <motion.div
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
           className="hero-content"
         >
-          <h1>About Our Mining Company</h1>
-          <p>Leading the mining industry with safety, sustainability, and innovation.</p>
-          <img
-            src="https://picsum.photos/1600/500?random=10"
-            alt="Hero mining"
-            className="hero-image"
-          />
+          <h1>Sasa Msuthu’s Uitkyk Mine</h1>
+          <p>
+            A modern open-cast coal mining operation in Nkangala, Mpumalanga,
+            blending technology, efficiency, and safety.
+          </p>
         </motion.div>
       </section>
 
-      {/* Company History */}
+      {/* About Us */}
       <section className="about-section history">
         <motion.h2
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
         >
-          Our History
+          About Us
         </motion.h2>
         <motion.div
           className="history-content"
@@ -75,27 +89,74 @@ function About() {
         >
           <div className="history-text">
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Nestled just outside Middleburg, Mpumalanga, Uitkyk Mine is a
+              purpose-built, modern open-cast coal operation. From the roar of
+              ADTs hauling coal to the precision of excavators and dozers
+              shaping the landscape, every corner reflects a blend of advanced
+              technology and hands-on expertise.
             </p>
             <p>
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+              Although a new operation, our ambition is clear: to set the
+              benchmark in productivity, safety, and environmental stewardship,
+              while delivering value to our community and stakeholders.
             </p>
           </div>
           <div className="history-images">
-            <img src="https://picsum.photos/400/250?random=11" alt="Mining history 1" />
-            <img src="https://picsum.photos/400/250?random=12" alt="Mining history 2" />
+            {historyImages.map((img, idx) => (
+              <img
+                key={idx}
+                src={img.src}
+                alt={img.alt}
+                loading="lazy"
+                style={{ cursor: "pointer" }}
+                onClick={() => setModalImage(img.src)}
+              />
+            ))}
           </div>
         </motion.div>
       </section>
 
-      {/* Mission & Vision */}
+      {/* Modal for history images */}
+      {modalImage && (
+        <div
+          className="modal-overlay"
+          onClick={() => setModalImage(null)}
+          style={{
+            position: "fixed",
+            inset: 0,
+            backgroundColor: "rgba(0,0,0,0.85)",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            zIndex: 9999,
+            padding: "10px",
+          }}
+        >
+          <img
+            src={modalImage}
+            alt="Enlarged"
+            loading="lazy"
+            style={{
+              width: "100%",
+              height: "auto",
+              maxWidth: "100%",
+              maxHeight: "100%",
+              borderRadius: "10px",
+              boxShadow: "0 4px 20px rgba(0,0,0,0.5)",
+              objectFit: "contain",
+            }}
+          />
+        </div>
+      )}
+
+      {/* Our Compass */}
       <section className="about-section mission-vision">
         <motion.h2
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
         >
-          Mission & Vision
+          Our Compass
         </motion.h2>
         <motion.div
           className="mv-cards"
@@ -104,26 +165,30 @@ function About() {
           transition={{ duration: 0.8 }}
         >
           <div className="card">
-            <img src="https://picsum.photos/150/150?random=13" alt="Mission" />
-            <h3>Mission</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Driving sustainable mining worldwide.</p>
+            <h3>Purpose in Action</h3>
+            <p>
+              We deliver coal efficiently and responsibly, powering industries
+              and livelihoods without compromise.
+            </p>
           </div>
           <div className="card">
-            <img src="https://picsum.photos/150/150?random=14" alt="Vision" />
-            <h3>Vision</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. To be a global mining leader.</p>
+            <h3>Pioneering Spirit</h3>
+            <p>
+              Every operation is an opportunity to innovate, refining methods
+              and leveraging technology to enhance safety and efficiency.
+            </p>
           </div>
         </motion.div>
       </section>
 
-      {/* Values */}
+      {/* Core Values */}
       <section className="about-section values">
         <motion.h2
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
         >
-          Our Values
+          Our Core Values
         </motion.h2>
         <motion.div
           className="values-cards"
@@ -134,22 +199,34 @@ function About() {
           <div className="card">
             <span className="icon">💎</span>
             <h3>Integrity</h3>
-            <p>Upholding honesty and transparency in all operations.</p>
+            <p>
+              From boardroom to pit, honesty and accountability guide every
+              action.
+            </p>
           </div>
           <div className="card">
             <span className="icon">🤝</span>
             <h3>Collaboration</h3>
-            <p>Working together to achieve excellence in mining.</p>
+            <p>
+              Success is achieved when teams, operators, and engineers work
+              seamlessly together.
+            </p>
           </div>
           <div className="card">
             <span className="icon">🌱</span>
             <h3>Sustainability</h3>
-            <p>Commitment to eco-friendly and responsible mining practices.</p>
+            <p>
+              Commitment to environmentally responsible and eco-friendly mining
+              practices.
+            </p>
           </div>
           <div className="card">
             <span className="icon">⚡</span>
             <h3>Innovation</h3>
-            <p>Driving growth through technology and innovation.</p>
+            <p>
+              Modern solutions and technology continuously improve operations
+              and outcomes.
+            </p>
           </div>
         </motion.div>
       </section>
@@ -190,16 +267,15 @@ function About() {
             >
               {safetySlides.map((slide, index) => (
                 <SwiperSlide key={index}>
-                  <img src={slide.img} alt={slide.title} />
+                  <div className="slide-image-wrapper">
+                    <img src={slide.img} alt={slide.title} loading="lazy" />
+                  </div>
                 </SwiperSlide>
               ))}
             </Swiper>
           </div>
         </motion.div>
       </section>
-
     </div>
   );
 }
-
-export default About;

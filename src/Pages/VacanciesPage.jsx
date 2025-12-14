@@ -10,14 +10,12 @@ function Vacancies() {
   // Demo placeholder vacancies with PDF links
   const vacancies = [
     {
-      title: "Mining Engineer",
-      location: "Johannesburg, South Africa",
+      title: "Secretary/Admin Assistant",
+      location: "Emalahleni, South Africa",
       type: "Full-Time",
       closingDate: "09 Jan 2026",
-      pdf: "/pdf/vacancy01.pdf"
-  
-,
-    }
+      pdf: "/pdf/vacancy01.pdf",
+    },
   ];
 
   return (
@@ -48,9 +46,15 @@ function Vacancies() {
             <div className="vacancy-icon">📌</div>
             <div className="vacancy-details">
               <h3>{vacancy.title}</h3>
-              <p><strong>Location:</strong> {vacancy.location}</p>
-              <p><strong>Type:</strong> {vacancy.type}</p>
-              <p><strong>Closing Date:</strong> {vacancy.closingDate}</p>
+              <p>
+                <strong>Location:</strong> {vacancy.location}
+              </p>
+              <p>
+                <strong>Type:</strong> {vacancy.type}
+              </p>
+              <p>
+                <strong>Closing Date:</strong> {vacancy.closingDate}
+              </p>
             </div>
             <button
               className="vacancy-button"
@@ -81,7 +85,6 @@ function Vacancies() {
           </div>
         </div>
       )}
-
     </div>
   );
 }
