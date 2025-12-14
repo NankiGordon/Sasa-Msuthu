@@ -1,0 +1,248 @@
+/* About.css */
+.about-page {
+  background-color: #f5f5f5; /* light gray for better card contrast */
+  min-height: 100vh;
+  color: #222;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+/* Hero Section */
+.about-hero {
+  background: url("https://picsum.photos/1600/500?random=10") center/cover no-repeat;
+  color: white;
+  text-align: center;
+  padding: 120px 20px 80px;
+  position: relative;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about-hero h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.about-hero p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.hero-image {
+  width: 100%;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+/* General Section Styles */
+.about-section {
+  padding: 80px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about-section h2 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.about-section h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: #0078ff;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+/* History Section */
+.history-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+  align-items: center;
+}
+
+.history-text {
+  flex: 1 1 400px;
+}
+
+.history-text p {
+  margin-bottom: 15px;
+}
+
+.history-images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.history-images img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 10px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.history-images img:hover {
+  transform: scale(1.05);
+}
+
+/* Mission & Vision Cards */
+.mv-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+}
+
+.mv-cards .card {
+  background: #ffffff;
+  padding: 30px 20px;
+  border-radius: 15px;
+  text-align: center;
+  flex: 1 1 250px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mv-cards .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.mv-cards img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 20px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Values Cards */
+.values-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+}
+
+.values-cards .card {
+  background: #ffffff;
+  border-radius: 15px;
+  text-align: center;
+  padding: 30px 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.values-cards .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.values-cards .icon {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 20px;
+}
+
+/* Safety Section */
+.safety-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.safety-text {
+  flex: 1 1 400px;
+  max-width: 500px;
+}
+
+.safety-text h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #0078ff;
+}
+
+.safety-text p {
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
+/* Safety Carousel Styling */
+.safety-carousel {
+  flex: 1 1 500px;
+  max-width: 600px;
+}
+
+.safety-carousel img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Center slides */
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .history-content,
+  .safety-content,
+  .mv-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .about-hero p {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-hero h1 {
+    font-size: 2rem;
+  }
+
+  .about-hero p {
+    font-size: 1rem;
+  }
+
+  .values-cards,
+  .mv-cards {
+    gap: 20px;
+  }
+
+  .history-images {
+    gap: 10px;
+  }
+
+  .safety-content {
+    flex-direction: column;
+    align-items: center;
+  }
+}

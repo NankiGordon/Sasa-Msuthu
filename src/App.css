@@ -1,0 +1,18 @@
+@import "tailwindcss";
+/* Ensure the html and body take full height */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+/* Make the root container take full height and use flex column */
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Main content should expand to fill space */
+.main-content {
+  flex: 1; /* pushes footer to bottom if content is short */
+}

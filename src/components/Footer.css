@@ -1,0 +1,61 @@
+/* Footer container */
+.footer {
+  width: 100%;
+  background-color: transparent; /* matches navbar */
+  color: rgb(34, 34, 34); /* dark text */
+  font-family: Arial, sans-serif;
+  padding: 20px 40px;
+  box-sizing: border-box;
+  border-top: 1px solid rgba(34, 34, 34, 0.2);
+  cursor: default;
+}
+
+/* Inner container with flex */
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* center content horizontally */
+  align-items: center;
+  gap: 30px; /* spacing between copyright and links */
+}
+
+/* Copyright text */
+.footer-container .copyright {
+  font-size: 14px;
+  color: rgb(80, 80, 80);
+}
+
+/* Footer links */
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 20px; /* space between links */
+}
+
+.footer-links li a {
+  text-decoration: none;
+  color: rgb(34, 34, 34);
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.footer-links li a:hover {
+  color: rgb(0, 120, 255); /* subtle hover accent */
+}
+
+/* Responsive: stack vertically on small screens */
+@media (max-width: 480px) {
+  .footer-container {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+}
